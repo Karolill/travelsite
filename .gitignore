@@ -9,7 +9,7 @@
 /coverage
 
 # production
-/build
+# build was here, but I will try to add it, so github actions can find the folder
 
 # misc
 .DS_Store
