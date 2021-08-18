@@ -1,0 +1,31 @@
+/*Header*/
+
+.travel-site-logo {
+  font-family: "Lucida Handwriting";
+}
+
+header {
+  padding: 15px;
+}
+
+/*Blobs*/
+
+.blob svg {
+  position: absolute;
+  width: 20%;
+  height: auto;
+}
+
+#blob1 {
+  top: 15%;
+}
+
+#blob2 {
+  top: 30%;
+  right: 0;
+}
+
+#blob3 {
+  bottom: 0;
+  left: 15%;
+}
