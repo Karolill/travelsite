@@ -15,17 +15,10 @@ Runs the app in the development mode. Open [http://localhost:3000](http://localh
 Run all tests.
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
 # Firebase
 
 This project uses Firebase, and the web app is hosted at https://travelsite-4d5b3.web.app/.
-Github actions is also used, and when main is updated, the code in `build` will be deployed automatically. This also means that one must run `npm run build` before pushing to main, if the changes is to be visible. 
+
+### Build
+
+The app will automatically be built and deployed when a PR is merged to main. This is done using Github actions.
