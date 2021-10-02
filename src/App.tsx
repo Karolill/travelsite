@@ -1,11 +1,19 @@
 import Header from "./components/header";
 import Login from "./components/login";
+import Home from "./components/home";
 import { ReactComponent as Blob1 } from "./resources/blob1.svg";
 import { ReactComponent as Blob2 } from "./resources/blob2.svg";
 import { ReactComponent as Blob3 } from "./resources/blob3.svg";
 import "./styling/app.css";
 import firebase from "firebase/app";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import { AuthContext } from "./context/UserContext";
+import { useContext } from "react";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAhKHqnnxevz3UjS6eS6mhrNNNynWe8O88",
@@ -18,9 +26,7 @@ const firebaseConfig = {
 };
 
 // Must be called before any use of firebase
-const app = !firebase.apps.length
-  ? firebase.initializeApp(firebaseConfig)
-  : firebase.app();
+!firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
 
 /**
  * Component to show the application. Switch between login and
@@ -28,6 +34,22 @@ const app = !firebase.apps.length
  * @returns The application
  */
 const App = () => {
+  const { userData } = useContext(AuthContext);
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      // User is signed in.
+      if (userData) {
+        userData.userName = user.displayName;
+        userData.userEmail = user.email;
+        userData.userPhotoLink = user.photoURL;
+        userData.userId = user.uid;
+      }
+    } else {
+      // User not signed in.
+      return <Redirect to={"/"} />;
+    }
+  });
+
   return (
     <div className="App">
       <Header />
@@ -49,7 +71,7 @@ const App = () => {
             <Login />
           </Route>
           <Route path="/home">
-            <div>HOME</div>
+            <Home />
           </Route>
         </Switch>
       </Router>
