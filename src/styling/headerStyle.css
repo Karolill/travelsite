@@ -1,0 +1,18 @@
+header {
+  display: inline;
+  overflow: hidden;
+  padding: 20px 10px;
+}
+
+#right-side-header {
+  float: right;
+  margin: 10px 0;
+}
+
+#right-side-header button {
+  font-family: "Open sans", Arial, sans-serif;
+  font-size: 20px;
+  border: none;
+  padding: 5px;
+  margin: 0 10px;
+}
