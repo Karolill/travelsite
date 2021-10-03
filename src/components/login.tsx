@@ -3,6 +3,7 @@ import firebase from "firebase/app";
 import * as firebaseui from "firebaseui";
 import "firebaseui/dist/firebaseui.css";
 import { useEffect } from "react";
+import HeaderSignedOut from "./headerSignedOut";
 
 /**
  * Component responsible for showing the different
@@ -39,7 +40,12 @@ const Login = () => {
       signInSuccessUrl: "/home",
     });
   });
-  return <div id="firebaseui-auth-container"></div>;
+  return (
+    <>
+      <HeaderSignedOut />
+      <div id="firebaseui-auth-container"></div>
+    </>
+  );
 };
 
 export default Login;
