@@ -1,4 +1,4 @@
-import Header from "./components/header";
+import Header from "./components/headerSignedIn";
 import Login from "./components/login";
 import Home from "./components/home";
 import { ReactComponent as Blob1 } from "./resources/blob1.svg";
@@ -52,7 +52,6 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header />
       <div id="blobs">
         <div className="blob">
           <Blob1 />

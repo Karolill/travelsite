@@ -4,8 +4,17 @@ import "../styling/headerStyle.css";
 import { AuthContext } from "../context/UserContext";
 import { useContext } from "react";
 import firebase from "firebase/app";
+import { useLocation } from "react-router-dom";
 
-const Header = () => {
+/**
+ * Header for when we are signed in. I have two separate
+ * headers because the header depends on the route, and
+ * using redirect causes the header to render wrong if
+ * I just use window.location.pathname to decide which
+ * buttons should be in the header.
+ * @returns a header.
+ */
+const HeaderSignedIn = () => {
   const { setCurrentUser, setUserData } = useContext(AuthContext);
 
   const signOut = () => {
@@ -32,25 +41,17 @@ const Header = () => {
       });
   };
 
-  if (window.location.pathname !== "/") {
-    return (
-      <header>
-        <SVGLogo />
-        <div id="right-side-header">
-          <MainButton text={"New trip"} />
-          <button className="transparent-button" onClick={() => signOut()}>
-            Sign out
-          </button>
-        </div>
-      </header>
-    );
-  } else {
-    return (
-      <header>
-        <SVGLogo />
-      </header>
-    );
-  }
+  return (
+    <header>
+      <SVGLogo />
+      <div id="right-side-header">
+        <MainButton text={"New trip"} />
+        <button className="transparent-button" onClick={() => signOut()}>
+          Sign out
+        </button>
+      </div>
+    </header>
+  );
 };
 
-export default Header;
+export default HeaderSignedIn;

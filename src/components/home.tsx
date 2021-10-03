@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Redirect } from "react-router-dom";
 import { AuthContext } from "../context/UserContext";
+import HeaderSignedIn from "./headerSignedIn";
 
 /**
  * Home page. Here one will see a collection of all
@@ -18,7 +19,12 @@ const Home = () => {
   if (!currentUser) {
     return <Redirect to={"/"} />;
   }
-  return <div>home</div>;
+  return (
+    <>
+      <HeaderSignedIn />
+      <h1>HOME</h1>
+    </>
+  );
 };
 
 export default Home;
