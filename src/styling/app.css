@@ -1,13 +1,3 @@
-/*Header*/
-
-.travel-site-logo {
-  font-family: "Lucida Handwriting";
-}
-
-header {
-  padding: 15px;
-}
-
 /*Blobs*/
 
 .blob svg {
@@ -29,4 +19,27 @@ header {
 #blob3 {
   bottom: 0;
   left: 15%;
+}
+
+/* Buttons */
+button {
+  border-radius: 5px;
+}
+
+.main-button {
+  background-color: #ad00ff;
+  color: white;
+}
+
+.main-button:hover {
+  background-color: #7b00b5;
+}
+
+.transparent-button {
+  background-color: transparent;
+}
+
+.transparent-button:hover {
+  background-color: #7b00b5;
+  color: white;
 }

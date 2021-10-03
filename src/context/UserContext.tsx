@@ -12,6 +12,8 @@ interface userDataProps {
 type ContextProps = {
   currentUser: any;
   userData: userDataProps;
+  setCurrentUser: React.Dispatch<any>;
+  setUserData: React.Dispatch<React.SetStateAction<userDataProps | undefined>>;
 };
 
 export const AuthContext = React.createContext<Partial<ContextProps>>({});
@@ -50,7 +52,7 @@ export const AuthProvider = (props: any) => {
     return <>Loading...</>;
   }
 
-  const context = { currentUser, userData };
+  const context = { currentUser, userData, setCurrentUser, setUserData };
 
   return (
     <AuthContext.Provider value={context}>
